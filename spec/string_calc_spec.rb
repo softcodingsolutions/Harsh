@@ -60,5 +60,12 @@ describe StringCalc do
         expect(StringCalc.add("//|\n10|20|30")).to eq(60)
       end
     end
+
+    context 'when passed an numbers greater than 1000' do
+      it 'number will be ignored and returns sum' do
+        expect(StringCalc.add("2,1003")).to eq(2)
+        expect(StringCalc.add("5,2024")).to eq(5)
+      end
+    end
   end
 end

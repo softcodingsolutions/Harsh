@@ -16,6 +16,7 @@ class StringCalc
     negatives = numbers_array.select { |num| num.to_i.negative? }
 
     raise ArgumentError, "Negatives not allowed: #{negatives.join(', ')}" if negatives.any?
+    numbers_array = numbers_array.map(&:to_i).select { |num| num <= 1000 }
     numbers_array.map(&:to_i).sum
   end
 end
