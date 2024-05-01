@@ -16,7 +16,13 @@ describe StringCalc do
 
     context "when passed an empty string" do
       it 'returns zero' do
-        expect(described_class.add(" ")).to eq 0
+        expect(described_class.add(" ")).to eq(0)
+      end
+    end
+
+    context "when passed an string inputs with commas" do
+      it 'returns the correct sum' do
+        expect(described_class.add("1,2,3")).to eq(6)
       end
     end
   end
