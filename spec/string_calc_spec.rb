@@ -46,5 +46,11 @@ describe StringCalc do
         expect { StringCalc.add("1\n 2") }.to raise_error(ArgumentError, 'Invalid input format')
       end
     end
+
+    context 'when passed an input with negative numberse' do
+      it 'raises an error for input' do
+        expect { StringCalc.add("1,-2,3,-4") }.to raise_error(ArgumentError, 'Negatives not allowed: -2, -4')
+      end
+    end
   end
 end
