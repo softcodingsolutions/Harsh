@@ -13,5 +13,11 @@ describe StringCalc do
         expect { described_class.add(142) }.to raise_error(ArgumentError, 'Invalid input! Please add only string')
       end
     end
+
+    context "when passed an empty string" do
+      it 'returns zero' do
+        expect(described_class.add(" ")).to eq 0
+      end
+    end
   end
 end
