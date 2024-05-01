@@ -25,5 +25,12 @@ describe StringCalc do
         expect(described_class.add("1,2,3")).to eq(6)
       end
     end
+
+    context 'when passed an numbers separated by commas and new lines' do
+      it 'returns the correct sum for it' do
+        expect(StringCalc.add("1\n2,3")).to eq(6)
+        expect(StringCalc.add("4,5\n6")).to eq(15)
+      end
+    end
   end
 end

@@ -3,6 +3,6 @@ class StringCalc
     raise ArgumentError, 'Invalid input! Please add only string' unless numbers.is_a?(String)
     return 0 if numbers.empty?
 
-    numbers = numbers.split(',').map(&:to_i).sum
+    numbers = numbers.split(/[, \n]+/).map(&:to_i).sum
   end
 end
