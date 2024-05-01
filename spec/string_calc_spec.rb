@@ -32,5 +32,19 @@ describe StringCalc do
         expect(StringCalc.add("4,5\n6")).to eq(15)
       end
     end
+
+    context 'when passed an numbers with trailing newline' do
+      it 'raises an error for input' do
+        expect { StringCalc.add("1,2,\n") }.to raise_error(ArgumentError, 'Invalid input format')
+        expect { StringCalc.add("1\n") }.to raise_error(ArgumentError, 'Invalid input format')
+      end
+    end
+
+    context 'when passed an numbers with newline followed by space' do
+      it 'raises an error for input' do
+        expect { StringCalc.add("1,\n 2") }.to raise_error(ArgumentError, 'Invalid input format')
+        expect { StringCalc.add("1\n 2") }.to raise_error(ArgumentError, 'Invalid input format')
+      end
+    end
   end
 end
